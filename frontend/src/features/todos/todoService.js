@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-const BASE_URL = process.env.BASE_URL
 const API_URL = '/api/todos/'
 
 // Create new todo 
@@ -11,7 +10,7 @@ const createTodo = async (todoData, token) => {
         },
     }
 
-    const response = await axios.post(BASE_URL + API_URL, todoData, config)
+    const response = await axios.post( API_URL, todoData, config)
 
     return response.data
 }
@@ -24,7 +23,7 @@ const getTodos = async (token) => {
         },
     }
 
-    const response = await axios.get(BASE_URL + API_URL, config)
+    const response = await axios.get(API_URL, config)
 
     return response.data
 }
@@ -37,7 +36,7 @@ const deleteTodo = async (todoId, token) => {
         },
     }
 
-    const response = await axios.delete(BASE_URL + API_URL + todoId, config)
+    const response = await axios.delete(API_URL + todoId, config)
 
     return response.data
 }
@@ -58,7 +57,7 @@ const updateCompleted = async (todoId, token, isCompleted) => {
 
     var config = {
         method: 'put',
-        url: BASE_URL + API_URL + todoId,
+        url: API_URL + todoId,
         headers: { 
           'Authorization': `Bearer ${token}`
         },
@@ -86,7 +85,7 @@ const updateDueTodo = async (todoId, token, isCompleted) => {
 
     var config = {
         method: 'put',
-        url: BASE_URL + API_URL + todoId,
+        url: API_URL + todoId,
         headers: { 
           'Authorization': `Bearer ${token}`
         },
