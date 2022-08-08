@@ -10,8 +10,8 @@ function App() {
 
   return (
     <>
-    <Router>
-      <div className='text-center container'>
+    <Router basename={process.env.PUBLIC_URL}>
+      <div className='text-center w-full'>
         <Navbar/>
         <Routes>
           <Route path="/" element={<Dashboard/>} />

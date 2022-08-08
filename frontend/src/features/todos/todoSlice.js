@@ -130,7 +130,7 @@ export const todoSlice = createSlice({
             state.message = action.payload
         })
         .addCase(getTodos.pending, (state) => {
-            state.isLoading = false
+            state.isLoading = true
         })
         .addCase(getTodos.fulfilled, (state, action) => {
             state.isLoading = false

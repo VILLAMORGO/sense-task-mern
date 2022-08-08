@@ -16,7 +16,6 @@ function CompletedTodo({ todo }) {
         return (
             <div className='todo rounded-lg text-start p-10 bg-gray-900  text-white'>
                 <h2>{todo.text}</h2>
-                {/* <div>{new Date(todo.createdAt).toLocaleString('en-US')}</div> */}
                 <button onClick={() => dispatch(deleteTodo(todo._id))} className='close text-xl text-red-600'>
                     <FaRegTimesCircle/>
                 </button>
