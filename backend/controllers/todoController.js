@@ -1,7 +1,6 @@
 const asyncHandler = require('express-async-handler')
 
 const Todo = require('../models/todoModel')
-const User = require('../models/userModel')
 
 // @description Get Todos
 // @route GET /api/todos
@@ -43,16 +42,14 @@ const updateTodo = asyncHandler (async (req, res) => {
         res.status(400).json({message: 'Todo not found'})
     }
 
-    const user = await User.findById(req.user.id)
-
     // Check for user
-    if (!user){
+    if (!req.user){
         res.status(401)
         throw new Error('User not found')
     }
 
     // Make sure the loginUser matches the todo user
-    if (todo.user.toString() !== user.id){
+    if (todo.user.toString() !== req.user.id){
         res.status(401)
         throw new Error('User not authorized')
 
@@ -75,16 +72,15 @@ const deleteTodo = asyncHandler (async (req, res) => {
         res.status(400).json({message: 'Todo not found'})
     }
 
-    const user = await User.findById(req.user.id)
 
     // Check for user
-    if (!user){
+    if (!req.user){
         res.status(401)
         throw new Error('User not found')
     }
 
     // Make sure the loginUser matches the todo user
-    if (todo.user.toString() !== user.id){
+    if (todo.user.toString() !== req.user.id){
         res.status(401)
         throw new Error('User not authorized')
     }

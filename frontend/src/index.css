@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +11,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
+  width: 100vw;
 }
 
 a {
@@ -35,46 +38,6 @@ h3 {
   margin-bottom: 10px;
 }
 
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
-  border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 60px;
-}
-
-.header ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header ul li {
-  margin-left: 20px;
-}
-
-.header ul li a {
-  display: flex;
-  align-items: center;
-}
-
-.header ul li a:hover {
-  color: #777;
-}
-
-.header ul li a svg {
-  margin-right: 5px;
-}
-
 .heading {
   font-size: 2rem;
   font-weight: 700;
@@ -86,20 +49,22 @@ h3 {
   color: #828282;
 }
 
-.goals {
+.todoContainer{
+  max-height: 55vh;
+}
+.todos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
-.goal {
-  background-color: #f4f4f4;
+.todo {
   margin: 10px 0;
-  padding: 20px 0 10px;
+  padding: 20px 20px 10px;
   position: relative;
 }
 
-.goal .close {
+.todo .close {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -108,11 +73,6 @@ h3 {
   background: none;
 }
 
-.form,
-.content {
-  width: 70%;
-  margin: 0 auto;
-}
 
 .form-group {
   margin-bottom: 10px;
@@ -135,38 +95,9 @@ h3 {
   margin: 0 0 5px 3px;
 }
 
-.btn {
-  padding: 10px 20px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background: #000;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  text-align: center;
-  appearance: button;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn svg {
-  margin-right: 8px;
-}
-
-.btn-reverse {
-  background: #fff;
-  color: #000;
-}
-
-.btn-block {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.btn:hover {
-  transform: scale(0.98);
+.dashboard-container {
+  mmax-height: 100%;
+  height: 60vh;
 }
 
 .loadingSpinnerContainer {
@@ -190,6 +121,28 @@ h3 {
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #271551 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #271551;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
 
 @keyframes spin {
   0% {
